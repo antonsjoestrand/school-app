@@ -3,12 +3,15 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 class ShowStudentDetails extends Component {
+  // Initialize the state values
   constructor(props) {
     super(props);
     this.state = {
       student: [],
     };
   }
+
+  // Grab student details by id
   componentDidMount() {
     const url = window.location.pathname;
     const id = url.split("/show-student/")[1];
@@ -21,6 +24,7 @@ class ShowStudentDetails extends Component {
       .catch((err) => console.log("Error", err));
   }
 
+  // Delete student by id
   onDeleteClick(id) {
     console.log("Delete", id);
     axios

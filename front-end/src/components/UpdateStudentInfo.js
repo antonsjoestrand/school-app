@@ -3,6 +3,7 @@ import axios from "axios";
 import "../App.css";
 
 class UpdateStudentInfo extends Component {
+  // Initialize the state values
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +20,7 @@ class UpdateStudentInfo extends Component {
     const url = window.location.pathname;
     const id = url.split("/edit-student/")[1];
 
+    // Get students details by id
     axios
       .get("http://localhost:8080/api/students/" + id)
       .then((res) => {
@@ -34,12 +36,14 @@ class UpdateStudentInfo extends Component {
       .catch((err) => console.log("Error", err));
   }
 
+  // Set state value on change
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
+  // Update students details by id with PUT method and return to home page
   onSubmit = (e) => {
     e.preventDefault();
     const url = window.location.pathname;

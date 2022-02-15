@@ -4,12 +4,15 @@ import StudentCard from "./StudentCard";
 import { Link } from "react-router-dom";
 
 class ShowStudentList extends Component {
+  // Initialize the state values
   constructor(props) {
     super(props);
     this.state = {
       students: [],
     };
   }
+
+  // Grab all students with GET method
   componentDidMount() {
     axios
       .get("http://localhost:8080/api/students")
@@ -23,6 +26,7 @@ class ShowStudentList extends Component {
     const students = this.state.students;
     let studentList;
 
+    // Maps student details if the data is available
     if (!students) {
       console.log("No students");
     } else {

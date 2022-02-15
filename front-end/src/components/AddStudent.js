@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class AddStudent extends Component {
+  // Initialize the state values
   constructor(props) {
     super(props);
     this.state = {
@@ -13,9 +14,13 @@ class AddStudent extends Component {
       year: "",
     };
   }
+
+  // Set state value on change
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  // Submit state values with POST method and return to home page
   onSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -50,7 +55,7 @@ class AddStudent extends Component {
         <div className='container'>
           <div className='row'>
             <h2 className='mb-3'>Add Student</h2>
-            
+
             <form onSubmit={this.onSubmit}>
               <div className='mb-3'>
                 <label htmlFor='profile' className='form-label'>
